@@ -20,7 +20,7 @@ namespace OpenCalendar.Droid
 
             // Get list of calendars
             IList<ResolveInfo> activityList = context.PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
-            // If they are no calendar installed, show error message
+            // If there are not any calendar installed, show error message
             if (activityList.Count == 0)
             {
                 MessagingCenter.Send<IOpenCal>(this, "CalendarAppMissing");
