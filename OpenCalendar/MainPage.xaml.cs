@@ -16,15 +16,17 @@ namespace OpenCalendar
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new ViewModel(Navigation);
+
             MessagingCenter.Subscribe<IOpenCal>(this, "CalendarAppMissing", (senderViewModel) =>
             {
                     DisplayAlert("Info", "No calendar app found on device", "OK");
             });
         }
 
-        void OpenCalendar(object sender, EventArgs e)
+        ~MainPage()
         {
-            DependencyService.Get<IOpenCal>().OpenCalendarApp();
+            MessagingCenter.Unsubscribe<IOpenCal>(this, "CalendarAppMissing");
         }
     }
 }

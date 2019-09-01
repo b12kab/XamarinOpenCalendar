@@ -8,14 +8,16 @@
              mc:Ignorable="d"
              Title="Example open calendar"
              x:Class="OpenCalendar.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding ShowCalCommand}" Order="Primary" Text="Calendar" Priority="0" />
+    </ContentPage.ToolbarItems>
 
-    <StackLayout>
+    <StackLayout VerticalOptions="Center" Padding="10">
         <!-- Place new controls here -->
-        <Label Text="Calendar!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label Text="Please open the calendar" 
+           HorizontalOptions="CenterAndExpand" />
 
-        <Button Text="Open" Clicked="OpenCalendar" />
+        <Button Text="Open it!" Command="{Binding ShowCalCommand}" />
     </StackLayout>
 
 </ContentPage>
